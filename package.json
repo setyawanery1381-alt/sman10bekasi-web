@@ -1,0 +1,19 @@
+{
+  "name": "sman10bekasi-web",
+  "version": "1.0.0",
+  "description": "Website Resmi SMAN 10 Bekasi - Modern Responsive Web Portal",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "deploy:vercel": "npx vercel",
+    "deploy:firebase": "npx -y firebase-tools@latest deploy --only hosting"
+  },
+  "keywords": [
+    "sman10bekasi",
+    "school-website",
+    "education",
+    "bekasi"
+  ],
+  "author": "SMAN 10 Bekasi",
+  "license": "MIT"
+}

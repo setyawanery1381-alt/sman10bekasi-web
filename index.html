@@ -1,0 +1,1018 @@
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <title>SMA Negeri 10 Kota Bekasi - Website Resmi &amp; CMS Sekolah</title>
+    <meta name="description" content="Website resmi SMA Negeri 10 Kota Bekasi (NPSN: 20223019), Perumahan Harapan Indah, Jl. Flamboyan Raya, Pejuang, Medan Satria. Portal informasi profil, berita, prestasi, 19 ekstrakurikuler, dan PPDB online." />
+    <meta property="og:title" content="SMA Negeri 10 Kota Bekasi - Website Resmi &amp; CMS Sekolah" />
+    <meta property="og:description" content="Website resmi SMA Negeri 10 Kota Bekasi (NPSN: 20223019), Perumahan Harapan Indah, Jl. Flamboyan Raya, Pejuang, Medan Satria. Portal informasi profil, berita, prestasi, 19 ekstrakurikuler, dan PPDB online." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://sman10bekasi.sch.id/media/img/logo-sman10.png" />
+    <meta name="theme-color" content="#1e3a8a" />
+    <link rel="icon" href="https://sman10bekasi.sch.id/favicon.ico" />
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            },
+            colors: {
+              brand: {
+                50: '#eff6ff',
+                100: '#dbeafe',
+                500: '#2563eb',
+                600: '#1d4ed8',
+                700: '#1e40af',
+                800: '#1e3a8a',
+                900: '#172554',
+              }
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body class="font-sans antialiased bg-slate-50 text-slate-900 selection:bg-blue-700 selection:text-white pb-16 lg:pb-0">
+
+    <!-- 1. PENGUMUMAN PENTING RUNNING TEXT -->
+    <div id="important-announcement-container"></div>
+
+    <!-- 2. STATUS AKREDITASI RUNNING TEXT -->
+    <div id="accreditation-ticker-container"></div>
+
+    <!-- 3. MAIN NAVBAR -->
+    <header id="main-navbar" class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 transition-all shadow-xs">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          
+          <!-- Logo & Nama Sekolah -->
+          <a href="#beranda" class="flex items-center gap-3.5 group">
+            <div class="w-12 h-12 rounded-2xl overflow-hidden bg-blue-50 p-1 flex-shrink-0 border border-blue-100 shadow-sm group-hover:scale-105 transition-transform">
+              <img src="https://sman10bekasi.sch.id/media/img/logo-sman10.png" alt="Logo SMAN 10 Bekasi" class="w-full h-full object-contain rounded-xl school-logo-img" onerror="this.src='https://images.unsplash.com/photo-1594608661623-aa0bd3a69d98?w=160&auto=format&fit=crop&q=80'" />
+            </div>
+            <div>
+              <span class="block text-base sm:text-lg font-extrabold text-slate-900 leading-tight group-hover:text-blue-700 transition-colors school-name-text">
+                SMA Negeri 10 Kota Bekasi
+              </span>
+              <span class="block text-[11px] sm:text-xs font-semibold text-slate-500 school-npsn-text">
+                NPSN: 20223019 • Akreditasi A (Unggul)
+              </span>
+            </div>
+          </a>
+
+          <!-- Desktop Navigation -->
+          <nav id="navbar-desktop-menu" class="hidden lg:flex items-center gap-6">
+            <!-- Rendered by app.js -->
+          </nav>
+
+          <!-- Right Action Controls -->
+          <div class="flex items-center gap-2 sm:gap-3">
+            <!-- Hard Reset / Refresh Cache Button -->
+            <button id="btn-navbar-refresh" onclick="hardResetCache()" class="p-2.5 border border-slate-200 hover:border-slate-300 bg-slate-50 hover:bg-white text-slate-600 hover:text-blue-700 rounded-xl transition-all shadow-xs" title="Reset Data Bawaan SMAN 10 Bekasi">
+              <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+            </button>
+
+            <!-- Admin CMS Gear Button -->
+            <button id="btn-admin-gear" onclick="openAdminLoginModal()" class="p-2.5 border border-slate-200 hover:border-blue-500 bg-slate-50 hover:bg-white text-slate-600 hover:text-blue-700 rounded-xl transition-all shadow-xs group" title="Panel Pengelola Admin CMS SMAN 10 (Password: sman10bks)">
+              <i data-lucide="settings" class="w-5 h-5 group-hover:rotate-90 transition-transform duration-300"></i>
+            </button>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="btn-mobile-menu-toggle" onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-100 transition-colors">
+              <i data-lucide="menu" class="w-5 h-5"></i>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Menu Drawer -->
+      <div id="mobile-menu-container" class="lg:hidden hidden border-t border-slate-200 bg-white shadow-xl animate-in slide-in-from-top duration-200">
+        <div id="mobile-menu-drawer"></div>
+      </div>
+    </header>
+
+    <main>
+      <!-- 4. HERO SECTION -->
+      <section id="beranda" class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden bg-slate-950 min-h-[620px] flex items-center">
+        <!-- Background Video from official SMAN 10 Bekasi website (Direct Local WebM + Online Fallback) -->
+        <video id="hero-bg-video" class="absolute inset-0 w-full h-full object-cover pointer-events-none transition-opacity duration-500" autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1600&auto=format&fit=crop&q=80">
+          <source src="media/vid/background.webm" type="video/webm">
+          <source src="https://www.sman10bekasi.sch.id/media/vid/background.webm" type="video/webm">
+        </video>
+        <div id="hero-bg-image" class="absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-1000 pointer-events-none"></div>
+        
+        <!-- Smart Contrast Gradient: Clear in center/right, protective gradient behind left text -->
+        <div id="hero-video-overlay" class="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/40 to-slate-950/10 pointer-events-none transition-all duration-300"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/40 pointer-events-none"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
+          <div class="max-w-3xl space-y-6">
+            <div class="flex flex-wrap items-center gap-2">
+              <div class="inline-flex items-center gap-2 bg-blue-600/70 border border-blue-400/40 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold text-white shadow-md">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-300"></i>
+                <span>Website Resmi SMA Negeri 10 Kota Bekasi</span>
+              </div>
+              <a href="#video-profil" class="inline-flex items-center gap-2 bg-rose-600/80 hover:bg-rose-600 border border-rose-400/50 backdrop-blur-md px-3.5 py-1.5 rounded-full text-xs font-bold text-white transition-colors shadow-md">
+                <i data-lucide="film" class="w-3.5 h-3.5 text-rose-200"></i>
+                <span>Galeri &amp; Video Profil</span>
+              </a>
+            </div>
+
+            <h1 id="hero-title" class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15] drop-shadow-lg">
+              Selamat Datang di Website Resmi SMA Negeri 10 Kota Bekasi
+            </h1>
+
+            <p id="hero-subtitle" class="text-base sm:text-lg text-slate-100 font-medium leading-relaxed max-w-2xl drop-shadow-md">
+              Terwujudnya murid yang cerdas, religius, berprestasi, sehat, berbudaya lokal, dan berwawasan global di era revolusi industri 5.0.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-4 pt-2">
+              <a id="hero-cta-btn" href="#berita" class="px-7 py-3.5 rounded-2xl bg-blue-700 hover:bg-blue-600 text-white font-bold text-sm shadow-xl hover:shadow-blue-600/40 transition-all flex items-center gap-2">
+                <span>Info Berita &amp; Prestasi</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
+              <a id="hero-sec-cta-btn" href="#ekskul" class="px-7 py-3.5 rounded-2xl bg-slate-900/60 hover:bg-slate-900/80 backdrop-blur-md border border-white/30 text-white font-bold text-sm transition-all shadow-lg">
+                Profil &amp; 19 Ekstrakurikuler
+              </a>
+            </div>
+          </div>
+
+          <!-- Floating Video Controls (Brightness / Play-Pause) -->
+          <div class="mt-8 flex items-center justify-end">
+            <div class="inline-flex items-center gap-2 bg-slate-900/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 shadow-xl text-xs text-white">
+              <span class="text-[11px] font-semibold text-slate-300 hidden sm:inline-flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                Video Latar:
+              </span>
+              <button type="button" onclick="toggleHeroBrightness()" id="btn-hero-brightness" class="px-2.5 py-1 rounded-full bg-white/15 hover:bg-white/25 transition-colors flex items-center gap-1.5 text-[11px] font-bold text-amber-300" title="Klik untuk mengubah kecerahan video latar">
+                <i data-lucide="sun" class="w-3.5 h-3.5"></i>
+                <span id="hero-brightness-label">Mode Jernih (Terang)</span>
+              </button>
+              <button type="button" onclick="toggleHeroVideoPlayback()" id="btn-hero-playpause" class="p-1 rounded-full bg-white/15 hover:bg-white/25 text-white transition-colors" title="Jeda / Putar Video">
+                <i data-lucide="pause" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Highlight Quick Stats -->
+          <div id="hero-stats-container" class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 sm:mt-12">
+            <!-- Rendered by app.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. SAMBUTAN KEPALA SEKOLAH -->
+      <section id="sambutan" class="py-16 sm:py-24 bg-white border-b border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="bg-gradient-to-br from-slate-50 to-blue-50/40 rounded-3xl p-6 sm:p-12 border border-slate-200/80 shadow-sm">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              
+              <div class="lg:col-span-4 flex flex-col items-center text-center">
+                <div class="relative w-48 h-48 sm:w-60 sm:h-60 rounded-3xl overflow-hidden shadow-2xl border-4 border-white mb-4 group bg-slate-100">
+                  <img id="principal-image" src="https://sman10bekasi.sch.id/_next/static/immutable/media/kepsek.38cds0p51jg2o.jpeg" alt="Kepala Sekolah SMAN 10 Bekasi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&auto=format&fit=crop&q=80'" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
+                </div>
+                <h3 id="principal-name" class="text-lg font-extrabold text-slate-900">Dra. Turheni Komar, M.Pd</h3>
+                <p id="principal-title" class="text-xs font-semibold text-blue-700">Kepala Sekolah SMA Negeri 10 Kota Bekasi</p>
+                <p id="principal-nip" class="text-[11px] text-slate-400 font-mono mt-0.5">NIP. 19650315 198903 2 005</p>
+              </div>
+
+              <div class="lg:col-span-8 space-y-5">
+                <div class="inline-flex items-center gap-2 bg-blue-100 text-blue-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                  <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+                  Sambutan Pimpinan Sekolah
+                </div>
+
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug">
+                  Mewujudkan Sumber Daya Manusia Cerdas, Terampil, dan Berkarakter Luhur
+                </h2>
+
+                <blockquote id="principal-quote" class="text-base sm:text-lg italic text-slate-700 border-l-4 border-blue-700 pl-4 py-1">
+                  "Keunggulan tidak hanya sebatas ditandai dengan capaian prestasi akademik tetapi secara integral dengan implementasi karakter. Budaya mutu menjadi satu kesatuan antara kualitas akademik dengan nilai-nilai karakter."
+                </blockquote>
+
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                  SMA Negeri 10 Kota Bekasi di usianya yang matang senantiasa mengembangkan prestasi menuju sekolah unggul dengan menciptakan pembelajaran yang berkesadaran, bermakna, dan menggembirakan bagi seluruh murid.
+                </p>
+
+                <div class="pt-2">
+                  <button onclick="openPrincipalModal()" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-900 hover:bg-blue-700 text-white text-xs sm:text-sm font-bold shadow-md transition-all">
+                    <span>Baca Sambutan Lengkap</span>
+                    <i data-lucide="book-open" class="w-4 h-4"></i>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. PROFIL SEKOLAH & VISI MISI -->
+      <section id="profil" class="py-16 sm:py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          <div class="text-center max-w-2xl mx-auto space-y-3">
+            <span class="text-xs font-extrabold uppercase tracking-widest text-blue-700 bg-blue-50 px-3 py-1 rounded-full">
+              Profil & Identitas
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+              Arah Cita-Cita & 7 Misi SMAN 10 Bekasi
+            </h2>
+            <p class="text-sm sm:text-base text-slate-500">
+              Visi dan Misi resmi yang menjadi landasan operasional pembelajaran dan pengembangan karakter di SMA Negeri 10 Kota Bekasi.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="profil-visi">
+            <!-- Card Visi -->
+            <div class="bg-white p-8 rounded-3xl border border-slate-200/80 shadow-md space-y-4">
+              <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-700 flex items-center justify-center">
+                <i data-lucide="compass" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-xl font-extrabold text-slate-900">Visi Sekolah</h3>
+              <p class="text-base font-semibold text-blue-900 bg-blue-50/70 p-5 rounded-2xl leading-relaxed border border-blue-100">
+                "Terwujudnya murid yang cerdas, religius, berprestasi, sehat, berbudaya lokal, dan berwawasan global."
+              </p>
+              <p class="text-xs text-slate-500 leading-relaxed">
+                Visi ini diwujudkan melalui penguatan iman dan taqwa (IMTAK) serta penguasaan ilmu pengetahuan dan teknologi (IPTEK) yang terintegrasi.
+              </p>
+            </div>
+
+            <!-- Card Misi -->
+            <div class="bg-white p-8 rounded-3xl border border-slate-200/80 shadow-md space-y-4">
+              <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-700 flex items-center justify-center">
+                <i data-lucide="target" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-xl font-extrabold text-slate-900">7 Misi Utama</h3>
+              <ul class="space-y-2.5 text-xs sm:text-sm text-slate-600">
+                <li class="flex items-start gap-2.5">
+                  <span class="w-5 h-5 rounded-full bg-blue-100 text-blue-800 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+                  <span>Melaksanakan kegiatan keagamaan setiap hari dalam upaya meningkatkan keimanan dan ketaqwaan terhadap Tuhan Yang Maha Esa.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="w-5 h-5 rounded-full bg-blue-100 text-blue-800 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+                  <span>Menyelenggarakan kegiatan literasi sebelum pembelajaran dimulai untuk membangun karakter pembelajar sepanjang hayat.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="w-5 h-5 rounded-full bg-blue-100 text-blue-800 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+                  <span>Melaksanakan kegiatan pengembangan minat dan bakat pada kegiatan Intrakurikuler, Kokurikuler dan Ekstrakurikuler berorientasi pada kebutuhan murid.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="w-5 h-5 rounded-full bg-blue-100 text-blue-800 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">4</span>
+                  <span>Mengikuti kompetisi dalam bidang akademik dan nonakademik di tingkat Nasional dan Internasional.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="w-5 h-5 rounded-full bg-blue-100 text-blue-800 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">5</span>
+                  <span>Menyelenggarakan pembelajaran yang Berkesadaran, Bermakna dan Menggembirakan.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="w-5 h-5 rounded-full bg-blue-100 text-blue-800 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">6</span>
+                  <span>Menciptakan lingkungan bersih, hijau, sejuk, rindang, aman, nyaman dan inklusif.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="w-5 h-5 rounded-full bg-blue-100 text-blue-800 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">7</span>
+                  <span>Melaksanakan digitalisasi sekolah dalam rangka meningkatkan penguasaan teknologi agar mampu bersaing di era industri 5.0.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 6 Dimensi P5 -->
+          <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 shadow-md">
+            <h3 class="text-lg font-bold text-slate-900 mb-6 text-center sm:text-left flex items-center gap-2">
+              <i data-lucide="award" class="w-5 h-5 text-amber-500"></i>
+              Implementasi Kurikulum Merdeka &amp; Profil Pelajar Pancasila (P5)
+            </h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+              <div class="p-4 rounded-2xl bg-slate-50 text-center space-y-2 border border-slate-100">
+                <div class="w-8 h-8 rounded-lg bg-blue-100 text-blue-800 flex items-center justify-center mx-auto">
+                  <i data-lucide="heart" class="w-4 h-4"></i>
+                </div>
+                <p class="text-xs font-bold text-slate-800">Beriman &amp; Bertaqwa</p>
+              </div>
+              <div class="p-4 rounded-2xl bg-slate-50 text-center space-y-2 border border-slate-100">
+                <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center mx-auto">
+                  <i data-lucide="globe" class="w-4 h-4"></i>
+                </div>
+                <p class="text-xs font-bold text-slate-800">Kebinekaan Global</p>
+              </div>
+              <div class="p-4 rounded-2xl bg-slate-50 text-center space-y-2 border border-slate-100">
+                <div class="w-8 h-8 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center mx-auto">
+                  <i data-lucide="users" class="w-4 h-4"></i>
+                </div>
+                <p class="text-xs font-bold text-slate-800">Bergotong Royong</p>
+              </div>
+              <div class="p-4 rounded-2xl bg-slate-50 text-center space-y-2 border border-slate-100">
+                <div class="w-8 h-8 rounded-lg bg-purple-100 text-purple-800 flex items-center justify-center mx-auto">
+                  <i data-lucide="user-check" class="w-4 h-4"></i>
+                </div>
+                <p class="text-xs font-bold text-slate-800">Mandiri</p>
+              </div>
+              <div class="p-4 rounded-2xl bg-slate-50 text-center space-y-2 border border-slate-100">
+                <div class="w-8 h-8 rounded-lg bg-rose-100 text-rose-800 flex items-center justify-center mx-auto">
+                  <i data-lucide="brain" class="w-4 h-4"></i>
+                </div>
+                <p class="text-xs font-bold text-slate-800">Bernalar Kritis</p>
+              </div>
+              <div class="p-4 rounded-2xl bg-slate-50 text-center space-y-2 border border-slate-100">
+                <div class="w-8 h-8 rounded-lg bg-cyan-100 text-cyan-800 flex items-center justify-center mx-auto">
+                  <i data-lucide="lightbulb" class="w-4 h-4"></i>
+                </div>
+                <p class="text-xs font-bold text-slate-800">Kreatif</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 7. PORTAL BERITA & PENGUMUMAN -->
+      <section id="berita" class="py-16 sm:py-24 bg-white border-t border-b border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div class="space-y-2">
+              <span class="text-xs font-extrabold uppercase tracking-widest text-blue-700 bg-blue-50 px-3 py-1 rounded-full">
+                Kabar &amp; Prestasi
+              </span>
+              <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                Berita Terbaru SMAN 10 Bekasi
+              </h2>
+              <p class="text-sm text-slate-500 max-w-xl">
+                Temukan informasi kegiatan, pengumuman kedinasan, prestasi murid, dan liputan seputar SMAN 10 Kota Bekasi.
+              </p>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="w-full md:w-72">
+              <div class="relative">
+                <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                <input type="text" id="news-search-input" oninput="handleNewsSearch(this.value)" placeholder="Cari Berita..." class="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-slate-50 border border-slate-200 text-sm focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all shadow-xs" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Category Pills -->
+          <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+            <button onclick="setNewsCategory('Semua')" data-category="Semua" class="news-cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-blue-700 text-white shadow-md">
+              Semua
+            </button>
+            <button onclick="setNewsCategory('Kegiatan')" data-category="Kegiatan" class="news-cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors">
+              Kegiatan
+            </button>
+            <button onclick="setNewsCategory('Prestasi')" data-category="Prestasi" class="news-cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors">
+              Prestasi
+            </button>
+            <button onclick="setNewsCategory('Pengumuman')" data-category="Pengumuman" class="news-cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors">
+              Pengumuman
+            </button>
+          </div>
+
+          <!-- Pinned News -->
+          <div id="pinned-news-container"></div>
+
+          <!-- News Cards Grid -->
+          <div id="news-grid-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <!-- Rendered by app.js -->
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 8. AGENDA KEGIATAN -->
+      <section id="agenda" class="py-16 sm:py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          <div class="text-center max-w-2xl mx-auto space-y-3">
+            <span class="text-xs font-extrabold uppercase tracking-widest text-blue-700 bg-blue-50 px-3 py-1 rounded-full">
+              Kalender Sekolah
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+              Agenda &amp; Jadwal Kegiatan SMAN 10
+            </h2>
+            <p class="text-sm sm:text-base text-slate-500">
+              Linimasa pelaksanaan program sekolah, sosialisasi, dan asesmen akademik tahun ajaran 2026/2027.
+            </p>
+          </div>
+
+          <div id="agenda-timeline-container" class="max-w-3xl mx-auto">
+            <!-- Rendered by app.js -->
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 9. SARANA & FASILITAS -->
+      <section id="fasilitas" class="py-16 sm:py-24 bg-white border-t border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          <div class="text-center max-w-2xl mx-auto space-y-3">
+            <span class="text-xs font-extrabold uppercase tracking-widest text-blue-700 bg-blue-50 px-3 py-1 rounded-full">
+              Sarana &amp; Prasarana
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+              Fasilitas Kampus SMAN 10 Bekasi
+            </h2>
+            <p class="text-sm sm:text-base text-slate-500">
+              Sarana lengkap penunjang praktikum sains, literasi teknologi informatika, laboratorium, ibadah, olahraga, dan seni.
+            </p>
+          </div>
+
+          <div id="facilities-grid-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Rendered by app.js -->
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 10. EKSTRAKURIKULER SISWA (19 EKSKUL RESMI) -->
+      <section id="ekskul" class="py-16 sm:py-24 bg-slate-50 border-t border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          <div class="text-center max-w-2xl mx-auto space-y-3">
+            <span class="text-xs font-extrabold uppercase tracking-widest text-blue-700 bg-blue-50 px-3 py-1 rounded-full">
+              Bakat &amp; Minat
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+              19 Ekstrakurikuler SMAN 10 Bekasi
+            </h2>
+            <p class="text-sm sm:text-base text-slate-500">
+              Wadah pengembangan potensi, kepemimpinan, riset ilmiah, seni musik, olahraga, dan karakter kepanduan siswa SMAN 10 Kota Bekasi.
+            </p>
+          </div>
+
+          <div id="ekskul-grid-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Rendered by app.js -->
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 11. INFO PPDB ONLINE BANNER -->
+      <section id="ppdb" class="py-12 bg-white border-t border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div id="ppdb-info-card">
+            <!-- Rendered by app.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- 12. VIDEO PROFIL & PETA LOKASI -->
+      <section id="media-lokasi" class="py-16 sm:py-24 bg-slate-50 border-t border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          <!-- Section Heading -->
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-slate-200 pb-6">
+            <div class="space-y-2">
+              <div class="inline-flex items-center gap-2 text-rose-600 text-xs font-extrabold uppercase tracking-wider">
+                <i data-lucide="video" class="w-4 h-4"></i>
+                <span>Galeri Video Resmi &amp; Lokasi</span>
+              </div>
+              <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                Video Profil &amp; Galeri Video SMAN 10 Bekasi
+              </h2>
+              <p class="text-sm text-slate-600 max-w-2xl">
+                Saksikan fasilitas sekolah, suasana pembelajaran berkesadaran, prestasi ekstrakurikuler, serta atraksi kebanggaan murid-murid SMA Negeri 10 Kota Bekasi.
+              </p>
+            </div>
+            <div class="flex items-center gap-3">
+              <a href="https://www.youtube.com/@SMAN10BEKASI" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold shadow-md shadow-rose-600/20 transition-all">
+                <i data-lucide="youtube" class="w-4 h-4"></i>
+                <span>Kanal Resmi @SMAN10BEKASI</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Top Row: Featured Video Player & Google Maps -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+            
+            <!-- Video Profil Featured Player (7 Cols) -->
+            <div id="video-profil" class="lg:col-span-7 bg-white p-6 sm:p-7 rounded-3xl border border-slate-200/80 shadow-md flex flex-col justify-between">
+              <div class="space-y-3">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <span id="youtube-category-badge" class="px-3 py-1 rounded-full text-xs font-extrabold bg-rose-50 text-rose-700 border border-rose-200">
+                    MPLS &amp; Profil
+                  </span>
+                  <span id="youtube-date-badge" class="text-xs font-semibold text-slate-400 flex items-center gap-1">
+                    <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+                    <span id="youtube-date-text">Tahun Ajaran 2026/2027</span>
+                  </span>
+                </div>
+
+                <h3 id="youtube-title" class="text-xl sm:text-2xl font-extrabold text-slate-900 leading-snug">
+                  Moment MPLS 2026 SMAN 10 Bekasi
+                </h3>
+
+                <p id="youtube-subtitle" class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Dokumentasi Masa Pengenalan Lingkungan Sekolah (MPLS) Murid Baru SMAN 10 Kota Bekasi dengan semangat disiplin, kebersamaan, dan pengenalan budaya sekolah.
+                </p>
+              </div>
+
+              <!-- Iframe Player -->
+              <div class="aspect-video rounded-2xl overflow-hidden shadow-xl bg-slate-950 mt-5 mb-3 relative group">
+                <iframe id="youtube-iframe" src="https://www.youtube-nocookie.com/embed/hY-x_cvI0kM?rel=0" class="w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+
+              <!-- Local File (file:///) Friendly Notice -->
+              <div id="file-protocol-notice" class="hidden mb-3 p-3 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-900 flex items-start gap-2.5">
+                <i data-lucide="info" class="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5"></i>
+                <div class="space-y-1">
+                  <p class="font-bold text-amber-950">Mode Berkas Komputer (file:///):</p>
+                  <p class="text-slate-700 leading-relaxed text-[11px]">
+                    Jika YouTube membatasi pemutar di browser karena kebijakan keamanan berkas lokal (Error 153), silakan klik 
+                    <a id="file-notice-yt-link" href="https://www.youtube.com/watch?v=hY-x_cvI0kM" target="_blank" rel="noopener noreferrer" class="font-bold text-rose-600 underline">Tonton Langsung di YouTube</a> 
+                    atau klik 2x berkas <code class="px-1.5 py-0.5 bg-amber-100 rounded text-slate-800 font-mono text-[11px] font-bold">start.bat</code> di folder untuk membuka lewat server resmi <span class="font-mono text-blue-700 font-bold">http://localhost:3000</span>.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Action Bar for Video -->
+              <div class="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-slate-100">
+                <div class="flex items-center gap-2">
+                  <a id="youtube-direct-link" href="https://www.youtube.com/watch?v=hY-x_cvI0kM" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-rose-600 hover:text-rose-700 hover:underline">
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                    <span>Tonton di YouTube</span>
+                  </a>
+                  <span class="text-slate-300">•</span>
+                  <button type="button" onclick="copyCurrentVideoUrl()" class="inline-flex items-center gap-1 text-xs font-semibold text-slate-500 hover:text-slate-800 transition-colors">
+                    <i data-lucide="share-2" class="w-3.5 h-3.5"></i>
+                    <span>Salin Tautan</span>
+                  </button>
+                </div>
+                <div class="text-[11px] font-semibold text-slate-400">
+                  Resmi SMA Negeri 10 Kota Bekasi
+                </div>
+              </div>
+            </div>
+
+            <!-- Peta Lokasi (5 Cols) -->
+            <div id="lokasi" class="lg:col-span-5 bg-white p-6 sm:p-7 rounded-3xl border border-slate-200/80 shadow-md flex flex-col justify-between">
+              <div>
+                <div class="inline-flex items-center gap-2 text-blue-700 text-xs font-extrabold uppercase tracking-wider mb-2">
+                  <i data-lucide="map-pin" class="w-4 h-4"></i>
+                  Lokasi Kampus SMAN 10
+                </div>
+                <h3 class="text-xl font-extrabold text-slate-900 mb-2">
+                  Peta Lokasi Harapan Indah
+                </h3>
+                <p class="text-xs text-slate-500 mb-4 leading-relaxed">
+                  Perumahan Harapan Indah, Jl. Flamboyan Raya, RT.003/RW.019, Pejuang, Medan Satria, Kota Bekasi, Jawa Barat 17610.
+                </p>
+              </div>
+
+              <div class="aspect-4/3 sm:aspect-video lg:aspect-auto lg:flex-1 rounded-2xl overflow-hidden shadow-inner bg-slate-100 min-h-[220px]">
+                <iframe id="maps-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.5218861203027!2d106.9744!3d-6.1946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698bbefc874f67%3A0x7d2870425fa49b80!2sSMA%20Negeri%2010%20Kota%20Bekasi!5e0!3m2!1sid!2sid!4v1690000000000!5m2!1sid!2sid" class="w-full h-full" frameborder="0" allowfullscreen="" loading="lazy"></iframe>
+              </div>
+
+              <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                <span>Kota Bekasi, Jawa Barat</span>
+                <a href="https://maps.google.com/?q=SMA+Negeri+10+Kota+Bekasi" target="_blank" rel="noopener noreferrer" class="font-bold text-blue-700 hover:underline flex items-center gap-1">
+                  <span>Buka Google Maps</span>
+                  <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Bottom Row: Video Slide Carousel Section -->
+          <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 shadow-md space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <div class="inline-flex items-center gap-1.5 text-xs font-bold text-rose-600 uppercase tracking-wider mb-1">
+                  <i data-lucide="play-circle" class="w-4 h-4"></i>
+                  <span>Video Slide Dokumentasi</span>
+                </div>
+                <h3 class="text-xl font-extrabold text-slate-900">
+                  Video Slide &amp; Dokumentasi Kegiatan SMAN 10 Bekasi
+                </h3>
+                <p class="text-xs text-slate-500 mt-0.5">
+                  Klik video slide di bawah untuk menonton langsung di player utama atau geser untuk melihat koleksi lainnya.
+                </p>
+              </div>
+
+              <!-- Slider Navigation Controls -->
+              <div class="flex items-center gap-2">
+                <button type="button" onclick="prevVideoSlide()" class="p-2.5 rounded-xl border border-slate-200 hover:border-blue-600 hover:bg-blue-50 text-slate-700 hover:text-blue-700 transition-all shadow-xs" title="Geser ke kiri">
+                  <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                </button>
+                <button type="button" onclick="nextVideoSlide()" class="p-2.5 rounded-xl border border-slate-200 hover:border-blue-600 hover:bg-blue-50 text-slate-700 hover:text-blue-700 transition-all shadow-xs" title="Geser ke kanan">
+                  <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Video Slider Track -->
+            <div id="video-slider-track" class="video-slider-track flex gap-4 overflow-x-auto pb-3 pt-1 hide-scrollbar">
+              <!-- Rendered by app.js -->
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 13. FOOTER & KONTAK -->
+      <footer id="kontak" class="bg-slate-950 text-slate-300 pt-16 pb-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            
+            <!-- School About -->
+            <div class="space-y-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-blue-700 p-1 flex-shrink-0 flex items-center justify-center">
+                  <img src="https://sman10bekasi.sch.id/media/img/logo-sman10.png" class="w-full h-full object-contain rounded-lg school-logo-img" onerror="this.src='https://images.unsplash.com/photo-1594608661623-aa0bd3a69d98?w=160&auto=format&fit=crop&q=80'" />
+                </div>
+                <h4 class="font-extrabold text-white text-base school-name-text">SMA Negeri 10 Kota Bekasi</h4>
+              </div>
+              <p id="footer-about-text" class="text-xs text-slate-400 leading-relaxed">
+                SMA Negeri 10 Kota Bekasi adalah institusi pendidikan menengah atas negeri unggulan di Kota Bekasi yang berdedikasi melahirkan sumber daya manusia cerdas, religius, berprestasi, sehat, berbudaya lokal, dan berwawasan global.
+              </p>
+              <div class="flex items-center gap-3 pt-2">
+                <a href="https://www.instagram.com/sman10kotabekasi/" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-slate-900 hover:bg-pink-600 text-slate-300 hover:text-white flex items-center justify-center transition-colors" title="Instagram Resmi">
+                  <i data-lucide="instagram" class="w-4 h-4"></i>
+                </a>
+                <a href="https://www.youtube.com/@SMAN10BEKASI" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-slate-900 hover:bg-rose-600 text-slate-300 hover:text-white flex items-center justify-center transition-colors" title="YouTube Resmi">
+                  <i data-lucide="youtube" class="w-4 h-4"></i>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=100076562861716" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-slate-900 hover:bg-blue-700 text-slate-300 hover:text-white flex items-center justify-center transition-colors" title="Facebook Resmi">
+                  <i data-lucide="facebook" class="w-4 h-4"></i>
+                </a>
+                <a href="https://osis.sman10bekasi.sch.id/" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-slate-900 hover:bg-blue-600 text-slate-300 hover:text-white flex items-center justify-center transition-colors" title="Website OSIS">
+                  <i data-lucide="globe" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Kontak Kantor -->
+            <div class="space-y-3">
+              <h4 class="font-bold text-white text-sm uppercase tracking-wider">Kontak Sekolah</h4>
+              <ul class="space-y-2.5 text-xs text-slate-400">
+                <li class="flex items-start gap-2">
+                  <i data-lucide="map-pin" class="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5"></i>
+                  <span id="footer-address">Perumahan Harapan Indah, Jl. Flamboyan Raya, RT.003/RW.019, Kel. Pejuang, Kec. Medan Satria, Kota Bekasi, Jawa Barat 17610</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i data-lucide="phone" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                  <span id="footer-phone">(021) 889 759 28</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i data-lucide="message-circle" class="w-4 h-4 text-emerald-500 flex-shrink-0"></i>
+                  <a id="footer-wa" href="https://wa.me/6288975928000" target="_blank" class="hover:text-emerald-400 font-semibold">+62 889-7592-8000</a>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i data-lucide="mail" class="w-4 h-4 text-amber-400 flex-shrink-0"></i>
+                  <a id="footer-email" href="mailto:info@sman10bekasi.sch.id" class="hover:text-amber-300">info@sman10bekasi.sch.id</a>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i data-lucide="clock" class="w-4 h-4 text-slate-400 flex-shrink-0"></i>
+                  <span id="footer-hours">Senin - Jumat: 07:00 - 15:45 WIB</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Tautan Terkait -->
+            <div class="space-y-3">
+              <h4 class="font-bold text-white text-sm uppercase tracking-wider">Website Terkait</h4>
+              <ul class="space-y-2 text-xs text-slate-400">
+                <li><a href="https://osis.sman10bekasi.sch.id/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition-colors">Website Resmi OSIS SMAN 10</a></li>
+                <li><a href="http://disdik.jabarprov.go.id" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition-colors">Disdik Provinsi Jawa Barat</a></li>
+                <li><a href="https://belajar.kemdikbud.go.id/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition-colors">Rumah Belajar Kemdikbud</a></li>
+                <li><a href="https://psma.kemdikbud.go.id/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition-colors">PSMA Kemendikbudristek</a></li>
+                <li><a href="https://www.sman10bekasi.sch.id" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition-colors">Portal SMAN 10 (Server Asal)</a></li>
+              </ul>
+            </div>
+
+            <!-- Panel Pengelola -->
+            <div class="space-y-3">
+              <h4 class="font-bold text-white text-sm uppercase tracking-wider">CMS Pengelola</h4>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Kelola 19 ekskul, publikasi berita, agenda, sarana, sambutan pimpinan, dan tema portal secara mandiri.
+              </p>
+              <button onclick="openAdminLoginModal()" class="w-full py-2.5 bg-slate-900 hover:bg-blue-700 text-white rounded-xl text-xs font-bold transition-colors flex items-center justify-center gap-2 border border-slate-800">
+                <i data-lucide="lock" class="w-3.5 h-3.5"></i>
+                Masuk CMS (sman10bks)
+              </button>
+            </div>
+
+          </div>
+
+          <!-- Copyright -->
+          <div class="pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+            <p id="footer-copyright">© 2026 SMA Negeri 10 Kota Bekasi (NPSN: 20223019). Hak Cipta Dilindungi.</p>
+            <p>Portal Resmi &amp; Content Management System (CMS)</p>
+          </div>
+
+        </div>
+      </footer>
+    </main>
+
+    <!-- 14. FLOATING MOBILE BOTTOM DOCK -->
+    <div id="mobile-bottom-dock" class="lg:hidden fixed bottom-3 left-4 right-4 z-40">
+      <div class="floating-dock rounded-2xl px-4 py-2 flex items-center justify-around text-slate-300">
+        <a href="#beranda" class="flex flex-col items-center gap-1 text-[10px] font-semibold hover:text-white transition-colors">
+          <i data-lucide="home" class="w-5 h-5"></i>
+          <span>Beranda</span>
+        </a>
+        <a href="#berita" class="flex flex-col items-center gap-1 text-[10px] font-semibold hover:text-white transition-colors">
+          <i data-lucide="newspaper" class="w-5 h-5"></i>
+          <span>Berita</span>
+        </a>
+        <a href="#ppdb" class="flex flex-col items-center -mt-6 bg-blue-700 text-white p-3 rounded-full shadow-xl border-4 border-slate-900 hover:scale-105 transition-transform">
+          <i data-lucide="user-plus" class="w-5 h-5"></i>
+        </a>
+        <a href="#ekskul" class="flex flex-col items-center gap-1 text-[10px] font-semibold hover:text-white transition-colors">
+          <i data-lucide="trophy" class="w-5 h-5"></i>
+          <span>Ekskul</span>
+        </a>
+        <a href="#kontak" class="flex flex-col items-center gap-1 text-[10px] font-semibold hover:text-white transition-colors">
+          <i data-lucide="phone" class="w-5 h-5"></i>
+          <span>Kontak</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- MODALS SECTION -->
+    <!-- ========================================== -->
+
+    <!-- MODAL 1: SAMBUTAN KEPALA SEKOLAH LENGKAP -->
+    <div id="principal-speech-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+      <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 max-h-[90vh] overflow-y-auto space-y-6 shadow-2xl animate-in zoom-in-95 duration-200">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center">
+              <i data-lucide="quote" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-slate-900">Sambutan Lengkap Kepala Sekolah</h3>
+              <p class="text-xs text-slate-500">SMA Negeri 10 Kota Bekasi</p>
+            </div>
+          </div>
+          <button onclick="closePrincipalModal()" class="p-2 text-slate-400 hover:text-slate-900 rounded-xl hover:bg-slate-100">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+        <div id="principal-speech-full-text" class="space-y-4 text-slate-700 text-sm sm:text-base leading-relaxed">
+          <!-- Populated by JS -->
+        </div>
+        <div class="border-t border-slate-100 pt-4 flex justify-end">
+          <button onclick="closePrincipalModal()" class="px-5 py-2.5 bg-slate-900 text-white rounded-xl text-xs font-bold hover:bg-slate-800 transition-colors">
+            Tutup
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL 2: DETAIL ARTIKEL BERITA -->
+    <div id="news-detail-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+      <div class="bg-white rounded-3xl max-w-3xl w-full p-6 sm:p-8 max-h-[90vh] overflow-y-auto shadow-2xl animate-in zoom-in-95 duration-200">
+        <div class="flex justify-end mb-2">
+          <button onclick="closeNewsDetailModal()" class="p-2 text-slate-400 hover:text-slate-900 rounded-xl hover:bg-slate-100">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+        <div id="news-detail-content">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL 3: LIGHTBOX GAMBAR -->
+    <div id="lightbox-modal" class="fixed inset-0 z-50 bg-slate-950/95 flex flex-col items-center justify-center p-4 hidden" onclick="closeLightbox()">
+      <div class="max-w-4xl w-full space-y-3" onclick="event.stopPropagation()">
+        <div class="flex justify-end">
+          <button onclick="closeLightbox()" class="text-white hover:text-blue-400 p-2">
+            <i data-lucide="x" class="w-6 h-6"></i>
+          </button>
+        </div>
+        <div class="rounded-2xl overflow-hidden shadow-2xl border border-slate-800">
+          <img id="lightbox-image" src="" alt="Pratinjau Gambar" class="w-full max-h-[80vh] object-contain mx-auto bg-black" />
+        </div>
+        <p id="lightbox-caption" class="text-center text-xs text-slate-300 font-medium"></p>
+      </div>
+    </div>
+
+    <!-- MODAL 4: LOGIN ADMIN CMS -->
+    <div id="admin-login-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+      <div class="bg-white rounded-3xl max-w-sm w-full p-6 sm:p-8 shadow-2xl animate-in zoom-in-95 duration-200 space-y-6">
+        <div class="text-center space-y-2">
+          <div class="w-14 h-14 rounded-2xl bg-blue-50 text-blue-700 flex items-center justify-center mx-auto shadow-inner">
+            <i data-lucide="shield" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-xl font-extrabold text-slate-900">Login Admin SMAN 10</h3>
+          <p class="text-xs text-slate-500">Masukkan kata sandi pengelola untuk membuka konfigurasi sekolah.</p>
+        </div>
+
+        <form onsubmit="handleAdminLogin(event)" class="space-y-4">
+          <div class="space-y-1">
+            <label class="text-xs font-bold text-slate-700">Kata Sandi Pengelola</label>
+            <div class="relative">
+              <i data-lucide="key" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
+              <input type="password" id="admin-password-input" placeholder="Password: sman10bks" class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-hidden focus:ring-2 focus:ring-blue-500 transition-all font-mono" required />
+            </div>
+            <p class="text-[11px] text-slate-400">Sandi resmi SMAN 10: <code class="text-blue-700 font-bold font-mono">sman10bks</code></p>
+          </div>
+
+          <div class="flex gap-2">
+            <button type="button" onclick="closeAdminLoginModal()" class="flex-1 py-2.5 rounded-xl border border-slate-200 text-slate-600 font-bold text-xs hover:bg-slate-50">
+              Batal
+            </button>
+            <button type="submit" class="flex-1 py-2.5 rounded-xl bg-blue-700 hover:bg-blue-800 text-white font-bold text-xs shadow-md">
+              Masuk CMS
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- MODAL 5: FULL DASHBOARD ADMIN CMS -->
+    <div id="admin-dashboard-modal" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-2 sm:p-4 hidden">
+      <div class="bg-white rounded-3xl w-full max-w-6xl h-[92vh] flex flex-col overflow-hidden shadow-2xl animate-in zoom-in-95 duration-200">
+        
+        <!-- Header CMS -->
+        <div class="px-6 py-4 border-b border-slate-200 flex items-center justify-between bg-slate-50 flex-shrink-0">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-blue-700 text-white flex items-center justify-center">
+              <i data-lucide="sliders" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="text-base sm:text-lg font-extrabold text-slate-900">Panel Admin CMS SMAN 10 Kota Bekasi</h3>
+              <p class="text-xs text-slate-500">Sistem Manajemen Konten Mandiri (NPSN: 20223019)</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="adminLogout()" class="px-3.5 py-1.5 text-xs font-semibold text-rose-600 hover:bg-rose-50 rounded-xl transition-colors flex items-center gap-1.5">
+              <i data-lucide="log-out" class="w-4 h-4"></i>
+              <span>Logout</span>
+            </button>
+            <button onclick="closeAdminDashboard()" class="p-2 text-slate-400 hover:text-slate-900 rounded-xl hover:bg-slate-200/60">
+              <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Body Grid (Sidebar + Content) -->
+        <div class="flex-1 flex flex-col md:flex-row overflow-hidden">
+          
+          <!-- Sidebar Tabs -->
+          <aside class="w-full md:w-64 border-r border-slate-100 bg-slate-50/70 p-3 overflow-y-auto flex-shrink-0">
+            <p class="px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-wider text-slate-400">
+              Menu Pengaturan
+            </p>
+            <div id="admin-sidebar-menu" class="space-y-1">
+              <!-- Rendered by app.js -->
+            </div>
+          </aside>
+
+          <!-- Main Tab Content Area -->
+          <main class="flex-1 p-6 sm:p-8 overflow-y-auto bg-white">
+            <div id="admin-tab-content">
+              <!-- Rendered by app.js -->
+            </div>
+          </main>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- MODAL 6: NEWS EDITOR MODAL -->
+    <div id="news-editor-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+      <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 max-h-[90vh] overflow-y-auto shadow-2xl space-y-4 animate-in zoom-in-95 duration-200">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+          <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
+            <i data-lucide="file-plus" class="w-4 h-4 text-blue-700"></i>
+            Editor Berita SMAN 10 Bekasi
+          </h3>
+          <button onclick="closeNewsEditorModal()" class="p-1.5 text-slate-400 hover:text-slate-900 rounded-lg">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <form id="news-editor-form" onsubmit="saveNewsFromEditor(event)" class="space-y-4">
+          <div class="space-y-1">
+            <label class="text-xs font-bold text-slate-700">Judul Berita</label>
+            <input type="text" id="editor-title" class="w-full px-3 py-2 border rounded-xl text-sm" required />
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="space-y-1">
+              <label class="text-xs font-bold text-slate-700">Kategori</label>
+              <select id="editor-category" class="w-full px-3 py-2 border rounded-xl text-sm bg-white">
+                <option value="Kegiatan">Kegiatan</option>
+                <option value="Prestasi">Prestasi</option>
+                <option value="Pengumuman">Pengumuman</option>
+                <option value="Kesiswaan">Kesiswaan</option>
+              </select>
+            </div>
+            <div class="space-y-1">
+              <label class="text-xs font-bold text-slate-700">Penulis / Author</label>
+              <input type="text" id="editor-author" class="w-full px-3 py-2 border rounded-xl text-sm" required />
+            </div>
+          </div>
+
+          <div class="space-y-1">
+            <label class="text-xs font-bold text-slate-700">URL Gambar Sampul (Cover)</label>
+            <input type="text" id="editor-cover" class="w-full px-3 py-2 border rounded-xl text-sm" required />
+          </div>
+
+          <div class="space-y-1">
+            <label class="text-xs font-bold text-slate-700">Ringkasan Singkat (Summary)</label>
+            <textarea id="editor-summary" rows="2" class="w-full px-3 py-2 border rounded-xl text-sm" required></textarea>
+          </div>
+
+          <div class="space-y-1">
+            <label class="text-xs font-bold text-slate-700">Konten Berita Lengkap</label>
+            <textarea id="editor-content" rows="6" class="w-full px-3 py-2 border rounded-xl text-sm" required></textarea>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <input type="checkbox" id="editor-pinned" class="w-4 h-4 text-blue-700 rounded" />
+            <label for="editor-pinned" class="text-xs font-bold text-slate-700">Sematkan sebagai Berita Utama (Pinned)</label>
+          </div>
+
+          <div class="flex justify-end gap-2 pt-3 border-t border-slate-100">
+            <button type="button" onclick="closeNewsEditorModal()" class="px-4 py-2 border rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-50">
+              Batal
+            </button>
+            <button type="submit" class="px-5 py-2 bg-blue-700 hover:bg-blue-800 text-white rounded-xl text-xs font-bold shadow-md">
+              Simpan Berita
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- VIDEO MODAL LIGHTBOX POPUP -->
+    <div id="video-modal" class="fixed inset-0 z-[9999] hidden items-center justify-center bg-black/85 backdrop-blur-md p-3 sm:p-6 transition-all duration-300">
+      <div class="relative w-full max-w-4xl bg-slate-900 border border-slate-700/80 rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh]">
+        <!-- Modal Header -->
+        <div class="flex items-center justify-between px-5 py-3.5 bg-slate-950/90 border-b border-slate-800 text-white">
+          <div class="flex items-center gap-3 pr-4 truncate">
+            <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-blue-600 text-white uppercase tracking-wider" id="video-modal-category">Video</span>
+            <h3 id="video-modal-title" class="font-bold text-sm sm:text-base truncate text-slate-100">Judul Video</h3>
+          </div>
+          <button type="button" onclick="closeVideoModal()" class="w-9 h-9 flex items-center justify-center rounded-xl bg-slate-800/80 hover:bg-rose-600 text-slate-300 hover:text-white transition-colors" title="Tutup Pemutar">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+        <!-- 16:9 Video Frame -->
+        <div class="relative w-full bg-black aspect-video flex items-center justify-center">
+          <iframe 
+            id="video-modal-iframe" 
+            class="w-full h-full border-0" 
+            src="" 
+            title="Video Pemutar SMAN 10 Bekasi"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+          </iframe>
+        </div>
+        <!-- Modal Footer -->
+        <div class="px-5 py-3 bg-slate-950/95 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-400">
+          <p id="video-modal-subtitle" class="truncate max-w-md">Dokumentasi Kegiatan & Prestasi SMAN 10 Bekasi</p>
+          <div class="flex items-center gap-3">
+            <a id="video-modal-external-link" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-600/90 hover:bg-red-600 text-white font-medium transition-colors">
+              <i data-lucide="youtube" class="w-4 h-4"></i>
+              Buka di YouTube
+            </a>
+            <button type="button" onclick="closeVideoModal()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium transition-colors">
+              Tutup
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 max-w-sm pointer-events-none"></div>
+
+    <!-- Firebase SDK (Compat v10 for Cloud Firestore) -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+
+    <!-- Core Application Logic -->
+    <script src="js/app.js"></script>
+  </body>
+</html>
