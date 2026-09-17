@@ -945,12 +945,6 @@ function renderNavbar() {
             </a>
           </div>
         ` : ''}
-        <div class="pt-2">
-          <button onclick="toggleMobileMenu(false); openAdminLoginModal();" class="flex items-center justify-center gap-2 w-full py-2.5 border border-slate-200 text-slate-700 rounded-xl font-semibold text-sm hover:bg-slate-50">
-            <i data-lucide="lock" class="w-4 h-4 text-slate-500"></i>
-            Login Panel Admin (sman10bks)
-          </button>
-        </div>
       </div>
     `;
   }
@@ -3267,9 +3261,34 @@ function importBackupJSON(event) {
 }
 
 // ==========================================
-// 7. BOOTSTRAP INITIALIZATION
+// 7. BOOTSTRAP INITIALIZATION & SECRET ADMIN SHORTCUTS
 // ==========================================
 document.addEventListener("DOMContentLoaded", () => {
   loadState();
   renderPortal();
+
+  // Otomatis buka login admin jika URL memuat #admin atau ?admin=1
+  if (window.location.hash === "#admin" || new URLSearchParams(window.location.search).get("admin") === "1") {
+    setTimeout(() => openAdminLoginModal(), 400);
+  }
 });
+
+// Listener jika URL hash berubah menjadi #admin
+window.addEventListener("hashchange", () => {
+  if (window.location.hash === "#admin") {
+    openAdminLoginModal();
+  }
+});
+
+// Shortcut Rahasia Keyboard: Ctrl + Shift + A atau Ctrl + Alt + A
+window.addEventListener("keydown", (e) => {
+  if ((e.ctrlKey && e.shiftKey && (e.key === "A" || e.key === "a")) ||
+      (e.ctrlKey && e.altKey && (e.key === "A" || e.key === "a"))) {
+    e.preventDefault();
+    openAdminLoginModal();
+  }
+});
+
+// Global console shortcut untuk administrator
+window.openAdmin = openAdminLoginModal;
+window.openAdminLoginModal = openAdminLoginModal;
